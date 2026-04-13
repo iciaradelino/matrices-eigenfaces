@@ -2,7 +2,7 @@
 
 ### Overview
 
-Build a simplified face recognition system using Principal Component Analysis (PCA). The system should learn from a dataset of face images, extract key features (“eigenfaces”), reduce dimensionality, and recognize new faces by comparison in a reduced feature space.
+Build a simplified face recognition system using Eigenvectors and Eigenvalues + Principal Component Analysis (PCA). The system should learn from a dataset of face images, extract key features ("eigenfaces"), reduce dimensionality, and recognize new faces by comparison in a reduced feature space.
 
 ---
 
@@ -10,19 +10,20 @@ Build a simplified face recognition system using Principal Component Analysis (P
 
 ### 1. Data Processing
 
-* Input: a dataset of face images (same size, aligned).
+* Input: a labeled dataset of face images (same size, aligned). Recommended: AT&T (ORL) dataset — 40 people, 10 images each, pre-aligned.
 * Convert all images to grayscale.
 * Resize images to a consistent resolution (e.g., 64x64).
 * Flatten each image into a 1D vector.
 * Construct a data matrix where each row represents one image.
 * Compute and store the **mean face**.
 * Subtract the mean face from all images (mean-centering).
+* Note: the same pipeline applies when swapping in a custom dataset (e.g., photos of students and professors).
 
 ---
 
 ### 2. Eigenfaces Computation (PCA)
 
-* Compute covariance-related matrix efficiently (avoid large matrix if possible).
+* Compute covariance-related matrix efficiently: use `X^T X` (n×n) instead of `X X^T` (d×d) when n << d to avoid huge matrices.
 * Extract eigenvectors and eigenvalues.
 * Convert eigenvectors into **eigenfaces** (reshape to image format).
 * Sort eigenfaces by importance (descending eigenvalues).
@@ -46,7 +47,7 @@ Build a simplified face recognition system using Principal Component Analysis (P
   * Original image
   * Reconstructed image
 * Support varying `k` (e.g., 5, 20, 50).
-* Optionally compute reconstruction error.
+* Compute reconstruction error (e.g., MSE or Frobenius norm) — this is a core visualization, not optional.
 
 ---
 
@@ -68,7 +69,7 @@ Build a simplified face recognition system using Principal Component Analysis (P
 
 * Implement a **distance threshold**:
 
-  * If distance > threshold → classify as “unknown”.
+  * If distance > threshold → classify as "unknown".
 * Threshold should be configurable.
 
 ---
@@ -88,21 +89,21 @@ Build a simplified face recognition system using Principal Component Analysis (P
 ### 8. Visualizations (Important)
 
 * Display:
-
   * Mean face
   * Top eigenfaces (as images)
-  * Reconstruction comparisons
-* Optional:
-
-  * Plot accuracy vs number of eigenfaces
-  * Plot reconstruction error vs `k`
+  * Reconstruction comparisons at varying `k`
+  * Reconstruction error vs. `k` curve
+* Cross-group recognition tests (train on one group, test on another):
+  * Students vs. students
+  * Students vs. professors
+  * Students vs. famous people
 
 ---
 
 ### 9. Interactive Demo (Optional but Recommended)
 
-* Slider to adjust number of eigenfaces (`k`)
-* Live reconstruction update
+* Built using `ipywidgets` (runs inside Jupyter notebook).
+* Slider to adjust number of eigenfaces (`k`) with live reconstruction update.
 * Ability to input a test image and see:
 
   * Predicted identity
@@ -133,7 +134,3 @@ A working face recognition pipeline that:
 * Represents faces using eigenfaces
 * Recognizes individuals based on similarity
 * Demonstrates how performance changes with the number of components
-
----
-
-If you want, I can turn this into a folder structure + starter code next.
