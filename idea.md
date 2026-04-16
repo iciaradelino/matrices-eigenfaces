@@ -43,7 +43,6 @@ Build a simplified face recognition system using Eigenvectors and Eigenvalues + 
 
 * Reconstruct faces using a limited number of eigenfaces.
 * Allow comparison between:
-
   * Original image
   * Reconstructed image
 * Support varying `k` (e.g., 5, 20, 50).
@@ -59,7 +58,6 @@ Build a simplified face recognition system using Eigenvectors and Eigenvalues + 
 * Compare against stored training vectors using **Euclidean distance**.
 * Identify closest match (nearest neighbor).
 * Return:
-
   * Predicted identity
   * Distance score
 
