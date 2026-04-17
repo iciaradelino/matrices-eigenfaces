@@ -67,3 +67,28 @@ Marcelo
 Charles Leclerc 
 Lewis Hamilton
 Max Verstappen
+Justin Bieber
+Queen Elizabeth II
+Obama
+Einstein
+Gordon Ramsay
+Ice Spice
+Joe Biden
+Anne Hathaway
+Ilia Topuria
+Papa Francisco
+Kim Jong-un
+Rafael Nadal
+Napoleon 
+Greta Thunberg
+Steve Jobs
+Mr Bean
+Adam Sandler
+Freddie Mercury
+Julia Roberts
+Robert De Niro
+Jimmy Fallon
+Al Pacino
+Travis Scott
+Felipe VI
+Drake
