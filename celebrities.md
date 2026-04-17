@@ -26,3 +26,5 @@ MrBeast
 Marlon
 Jake Paul
 Kai Cenat
+Bad Gyal
+Salma Hayek
