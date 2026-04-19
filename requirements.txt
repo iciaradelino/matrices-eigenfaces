@@ -4,3 +4,4 @@ scikit-learn>=1.5
 pillow>=11.0
 ipywidgets>=8.1
 jupyter>=1.1
+opencv-python>=4.10.0
